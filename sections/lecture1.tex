@@ -1,0 +1,189 @@
+\section{Lecture}
+\subsection{Vector Spaces, Tensor Products, and Qubits}
+
+\begin{abstract}
+   \noindent The overview of this lecture is  From bits to qubits: dirac notation, density matrices, measurements and block sphere
+\end{abstract}
+
+\subsubsection{From bits to qubits}
+The lassical states for computation are either "0" or "1". However, in quantum mechanics, a state can be in \textit{superposition}, which means the binary state can exist simultaneously. These superpositions allow calculations to be performed much faster. This is because we can perform all the calculations of the many states at the same time. 
+
+The lecturer points out here indirectly, that using three binary bits, we can count to 8 $[(000),(111)]$, however, with 2 qubits, we can 
+
+We can construct some quantum algorithms that can exponentially speed up processes. HOWEVER, once we measure the superpositions state, it collapses into one of its states. Therefore, it is not that easy to design useful quantum algorithms.
+
+But that doesn't mean it's imposible. The interference effects is used here to make it possible. \footnote{honestly, I do not understand how this works}
+
+\subsubsection{Dirac Notation and Density Matrices}
+These are used to describe quantum states. For example, $let$ $a,b \in \mathbb{C}^2$:
+\begin{itemize}
+    \item $ ket:\ \ket{a} = \begin{pmatrix} a_0 \\ a_1 \end{pmatrix} $
+    \item $ bra:\ \bra{b} = \ket{b}^\dagger= \begin{pmatrix} b_0 \\ b_1 \end{pmatrix}^\dagger = (b_o^* \ \ b_1^*) $
+    \item $ bra-ket:\ \braket{b}{a} = a_0b_0^* + a_1b_1^*  = \braket{a}{b}^* \in \mathbb{C}$ 
+    \item $ket-bra:\ \ketbra{a}{b} = 
+    \begin{pmatrix}
+        a_0b_0^* & a_0b_1^*\\
+        a_1b_0^* & a_1b_1^*
+    \end{pmatrix}$
+\end{itemize}
+
+The ket seems seems to be a straight-forward column matrix with possible complex elements. The bra vector is the same as a ket vector, but denoted with a \textit{dagger} $^\dagger$ symbol, which implies that it is transformed into a row vector, whose elements are conjugated, i.e.:
+\begin{equation*}
+    \begin{pmatrix}x_0 + iy_0 \\ x_1 + iy_1 \end{pmatrix} \to (x_0 - iy_0 \ \  x_1 - iy_1) 
+\end{equation*}
+
+The bra-ket notation seems to imply a dot-product between the former conjugate bra vector $b$ and the latter ket vector $a$.
+
+a ket-bra notation multiplies a column and row vector which results in a $[2 \times 2]$ matrix.
+%Out of lecture notes
+\begin{mdframed}[hidealllines=true,backgroundcolor=black!60, fontcolor = white]
+\begin{center}Dirac Notation\end{center}
+bra–ket notation, or Dirac notation, is used ubiquitously to denote quantum states. The notation uses angle brackets,  $\langle$ and $\rangle$ , and a vertical bar $|$, to construct "bras" and "kets". 
+
+A ket is of the form  $|v\rangle$ . Mathematically it denotes a vector, $\boldsymbol{v}$, in an abstract (complex) vector space $V$, and physically it represents a state of some quantum system.
+
+A bra is of the form $\langle f|$. Mathematically it denotes a linear form $f:V\to \mathbb {C}$, i.e. a linear map that maps each vector in $V$ to a number in the complex plane C $\mathbb{C}$ . Letting the linear functional $\langle f|$ act on a vector $|v\rangle$ is written as $\langle f|v\rangle \in \mathbb {C}$. 
+\end{mdframed}
+%end
+
+The $\ket{0}$ is defined as $\begin{pmatrix}1\\0\end{pmatrix}$ and $\ket{1}$ as $\begin{pmatrix}0\\1\end{pmatrix}$, which are orthogonal proven by:
+
+\begin{equation*}
+    \braket{0}{1} = 1\cdot 0 + 0\cdot 1 = 0
+\end{equation*}
+
+Taking the ket-bra, we find that:
+\begin{align*}
+    \ketbra{0}{0} &=  \begin{pmatrix} 1 & 0 \\ 0 & 0\end{pmatrix}\\
+    \ketbra{1}{1} &=  \begin{pmatrix} 0 & 0 \\ 0 & 1\end{pmatrix}
+\end{align*}
+
+In general, any matrix $\rho$:
+\begin{equation*}
+    \rho = \begin{pmatrix}
+    \rho_{00} & \rho_{01}\\
+    \rho_{10} & \rho_{11}
+    \end{pmatrix} = \rho_{00} \ketbra{0}{0} + \rho_{01} \ketbra{0}{1} + \rho_{10} \ketbra{1}{0} + \rho_{11} \ketbra{1}{1} 
+\end{equation*}
+
+We learned these \textit{Direc Notation}, in order to describe \textit{density matrices}, i.e., normalized, positive Hermitian operators, which is commonly called $\rho$. The properties a density matrix $\rho$ are $tr(\rho) = 1$,  $\rho \geq 0$ and $\rho = \rho^\dagger$.
+
+\begin{mdframed}[hidealllines=true,backgroundcolor=black!60, fontcolor = white]
+\begin{center} Trace of a Matrix \end{center}
+In linear algebra, the trace of a square matrix $A$, denoted tr($A$), is defined to be the sum of elements on the main diagonal (from the upper left to the lower right) of $A$. The trace is only defined for a square matrix $(n \times n)$. 
+\end{mdframed}
+\begin{mdframed}[hidealllines=true,backgroundcolor=black!60, fontcolor = white]
+\begin{center} Hermitian Matrix \end{center}
+a Hermitian matrix (or self-adjoint matrix) is a complex square matrix that is equal to its own conjugate transpose—that is, the element in the i-th row and j-th column is equal to the complex conjugate of the element in the j-th row and i-th column, for all indices i and j: 
+\end{mdframed}
+
+Expanding on this information we understand that:
+\begin{itemize}
+    \item $tr(\rho) = \rho_{00} + \rho_{11} = 1$
+    \item $\bra{\Psi}\rho\ket{\Psi} \geq  0 \ \forall \ \Psi \Leftrightarrow \text{all eigenvalues } \geq 0$
+    \item $\rho^\dagger = \begin{pmatrix} 
+    \rho^*_{00} & \rho^*_{01}\\
+    \rho^*_{10} & \rho^*_{11}
+    \end{pmatrix}$
+\end{itemize}
+
+All quantum states are normalized. Our convention is $\braket{\Psi}{\Psi} = 1$, e.g.:
+$$
+\ket{\Psi} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \begin{pmatrix}
+\sfrac{1}{\sqrt{2}} \\
+\sfrac{1}{\sqrt{2}}
+\end{pmatrix}
+$$
+
+Spectral decomposition means that for every density matrix $\rho$ there exits an orthogonal basis ${\ket{i}}$, such that $\rho =\sum_i\lambda_i \ketbra{i}{i}$, where $\ket{i}$: eigenstates, $\lambda_i$: eigenvalues, $\sum_i \lambda_i = 1$.
+
+A density matrix can be called pure, if $\rho = \ketbra{\Psi}{\Psi}$, otherwise it is mixed. If $\rho$ is pure, then one eigenvalue is 1, and therefore all other eigenvalues are zero. I.e. $tr(\rho^2) = \sum_i \lambda_i^2 = 1$ if $\rho$ is pure, otherwise it is mixed state $tr(\rho^2) < 1$.
+
+Looking at some examples: 
+\begin{enumerate}
+    \item $\rho = \begin{pmatrix}
+    1 & 0 \\
+    0 & 0 
+    \end{pmatrix} = \ketbra{0}{0}$, $\rho$ is pure.
+    
+    \item $\rho = \frac{1}{2}\begin{pmatrix}
+    1 & 0\\
+    0 & 1
+    \end{pmatrix} = \frac{1}{2}(\ketbra{0}{0} + \ketbra{1}{1})$, the $tr(\rho)$ is less than 1,  making $\rho$ a mixed state.
+    
+    \item \begin{align*}
+            \rho &= \frac{1}{2} \begin{pmatrix}
+            \ \ 1 & -1 \\
+            -1 & \ \ 1
+            \end{pmatrix}\\ &= \frac{1}{2} (\ketbra{0}{0} - \ketbra{0}{1} -     \ketbra{1}{0} + \ketbra{1}{1}) \\ &=     \frac{1}{\sqrt{2}}(\ket{0}-\ket{1})\cdot \frac{1}{\sqrt{2}}(\bra{0}-\bra{1})
+        \end{align*}
+\end{enumerate}
+
+I am a bit lost on example number three. I don't see how she rearranged them so quickly. This next colored segment is my calculations to better understand the former. Skip it if you don't need it.
+
+\begin{mdframed}[hidealllines=true,backgroundcolor=black!60, fontcolor = white]
+\begin{center}What the hell just happened?\end{center}
+Let's calculate the ket-bra's of 10 and 01.
+\begin{align*}
+    \ketbra{0}{1} &= \begin{pmatrix}
+    1 \\
+    0
+    \end{pmatrix} \cdot (0 \ \ 1)^\dagger\\
+    &=\begin{pmatrix}
+    0 & 1 \\
+    0 & 0 
+    \end{pmatrix}\\
+\end{align*}
+\begin{align*}
+    \ketbra{1}{0} &= \begin{pmatrix}
+    0 \\
+    1
+    \end{pmatrix} \cdot (1 \ \ 0)^\dagger\\
+    &=\begin{pmatrix}
+    0 & 0 \\
+    1 & 0 
+    \end{pmatrix}\\
+\end{align*}
+Now let's draw out all the matrices from example three, line 2 \textbf{without} the coefficient:
+$$
+\begin{pmatrix} 
+1 & 0 \\ 
+0 & 0
+\end{pmatrix}
+-
+\begin{pmatrix}
+0 & 1 \\
+0 & 0 
+\end{pmatrix}
+-
+\begin{pmatrix}
+0 & 0 \\
+1 & 0 
+\end{pmatrix}
++
+\begin{pmatrix} 
+0 & 0 \\ 
+0 & 1
+\end{pmatrix}
+=
+\begin{pmatrix} 
+1 & -1 \\ 
+-1 & 1
+\end{pmatrix}
+$$
+Indeed, this equals:
+$$
+(\ketbra{0}{0} - \ketbra{0}{1} -     \ketbra{1}{0} + \ketbra{1}{1})
+$$
+Now for that rearrangement from the third line, it seems like you can treat them algebraically and just factor it out?
+$$
+\ketbra{0}{0} - \ketbra{0}{1} -     \ketbra{1}{0} + \ketbra{1}{1} = \ket{0}(\bra{0} - \bra{1}) - \ket{1}(\bra{0}+\bra{1}) 
+$$
+That didn't help. The only other thing I can do to make sense of this is by treating it like a quadratic formula, however, the commutative law doesn't apply
+$$
+\ketbra{0}{0} - \ketbra{0}{1} -     \ketbra{1}{0} + \ketbra{1}{1} = a^2 - ab - ba + b^2 = (a+b)(a-b) = (\ket{0}-\ket{1})\cdot (\bra{0}-\bra{1})
+$$
+But this is flimsy at best and I believe I need to revist this later.
+\end{mdframed}
+
+today ends at $24:25$.

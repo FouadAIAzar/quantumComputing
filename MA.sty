@@ -1,0 +1,393 @@
+\usepackage[utf8]{inputenc}
+\usepackage{CJKutf8}
+%\usepackage{utf8}
+\usepackage{mathtools}  
+\usepackage{xfrac} 
+\usepackage{geometry}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage[russian,english]{babel}
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+\usepackage{longtable}
+\usepackage{chemfig}
+\usepackage{pdfpages}
+\usepackage[table]{xcolor}
+\usepackage{braket}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{physics}
+%\usepackage{arabtex}
+% \usepackage[round]{natbib}
+% \bibliographystyle{plainnat}
+\newcommand\x{\times}
+\newcommand\y{\cellcolor{green!10}}
+%%%%Hyperref%%%%%%%%
+\usepackage[hidelinks]{hyperref}	
+% \hypersetup{
+%      colorlinks   = true,
+%      citecolor    = blue
+% }
+%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+%%%%%%List of symbols%%%%%%%
+\usepackage[]{listofsymbols}
+\usepackage{amsmath,amssymb}
+\numberwithin{equation}{subsection}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%Parskip%%%%%%%%
+\usepackage{parskip}
+\setlength{\parindent}{15pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{textcomp}
+%Font
+\usepackage{times}
+\usepackage{amssymb}
+\usepackage[export]{adjustbox}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{mwe}
+\parindent0cm
+\usepackage{lscape}
+\usepackage{float}
+\usepackage{gensymb}
+\usepackage[final]{pdfpages}
+
+%%%%%%%%%fancyhdr%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{calc}
+\newlength{\pageoffset}
+\setlength{\pageoffset}{2cm}% use whatever you like
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\itshape\nouppercase{\rightmark}}
+\fancyhead[RE]{\itshape\nouppercase{\leftmark}}
+
+%%%%%%Matlab%%%%%%%%%
+\usepackage{matlab}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+    \def\cleardoublepage{\clearpage%
+        \if@twoside
+            \ifodd\c@page\else
+                \vspace*{\fill}
+                \hfill
+                \begin{center}
+                \textit{This page intentionally left blank.}
+                \end{center}
+                \vspace{\fill}
+                \thispagestyle{empty}
+                \newpage
+                \if@twocolumn\hbox{}\newpage\fi
+            \fi
+        \fi
+    }
+\makeatother
+
+\makeatletter
+    \def\cleardoublepagee{\clearpage%
+        \if@twoside
+            \ifodd\c@page\else
+                \vspace*{\fill}
+                \hfill
+                \begin{center}
+                \textit{Burnout.}
+                \end{center}
+                \vspace{\fill}
+                \thispagestyle{empty}
+                \newpage
+                \if@twocolumn\hbox{}\newpage\fi
+            \fi
+        \fi
+    }
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%
+
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+%\setlength\parindent{24pt}
+\renewcommand{\baselinestretch}{1}
+
+\usepackage{listings}
+%f\usepackage[framed, numbered, autolinebreaks, useliterate]{mcode}
+
+\usepackage[final]{pdfpages}
+ 
+
+\usepackage{dcolumn}
+%%Add Image
+\usepackage{tikz}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows,calc}
+\makeatletter
+\def\figcaption{%
+    \refstepcounter{figure}%
+     \@dblarg{\@caption{figure}}}
+\makeatother
+
+ 
+%neuralnet
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+
+
+\usepackage{amssymb}
+
+\usepackage{nomencl}
+\makenomenclature
+
+%% This code creates the groups
+% -----------------------------------------
+\usepackage{etoolbox}
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{P}{Photochemistry}{%
+  \ifstrequal{#1}{N}{Neural Network}{%
+  \ifstrequal{#1}{O}{Other Symbols}{}}}%
+]}
+% -----------------------------------------
+
+%%%%Coloring Matrices%%%%
+\usepackage{mathtools}
+
+\newcommand{\DoTikzmark}[1]{%
+  \tikz[remember picture] \coordinate[shift={(0ex,0.7ex)}](#1);%
+}
+
+\newcommand{\DoTikzmarkK}[1]{%
+  \tikz[remember picture] \coordinate[shift={(-2ex,1ex)}](#1);%
+}
+
+\newcommand{\DoTikzmarkKK}[1]{%
+  \tikz[remember picture] \coordinate[shift={(-2ex,-1ex)}](#1);%
+}
+\newcommand{\colrow}[3][]{%
+  \tikz[overlay,remember picture, line width=10pt]
+    \draw[shorten >=-.1em,shorten <=-.1em,  #1] (#2)--(#3);
+}
+
+\newcommand{\colrowW}[3][]{%
+  \tikz[overlay,remember picture, line width=17pt]
+    \draw[shorten >=-.1em, shorten <=-.1em, #1] (#2)--(#3);
+}
+
+%%%%%Definition%%%%%
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+
+%%%Title section%%%%
+
+\usepackage{titlesec}
+\colorlet{secnumcolor}{cyan}
+%%%Title section%%%%
+
+\usepackage{titlesec}
+\colorlet{secnumcolor}{cyan}
+
+\titleformat{\section}
+{\normalfont\Huge\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\titleformat{\paragraph}[runin]
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+\titleformat{\subparagraph}[runin]
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+
+%%%%%%Highlighting Matrices%%%%%%%%%
+\usetikzlibrary{fit}
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\newcommand{\DrawBox}[1][]{%
+    \tikz[overlay,remember picture]{
+    \draw[red,#1]
+      ($(left)+(-0.2em,0.9em)$) rectangle
+      ($(right)+(0.2em,-0.3em)$);}
+}
+
+
+%%%Double Underline%%%
+\def\doubleunderline#1{\underline{\underline{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%Glossary
+%%%%%%%%
+\usepackage[toc]{glossaries}
+%\usepackage[acronym]{glossaries}
+\makeglossaries
+ 
+\newglossaryentry{rank}
+{
+    name=rank,
+    description={In linear algebra, the rank of a matrix \textbf{A} is the dimension of the vector space generated (or spanned) by its columns. This corresponds to the maximal number of linearly independent columns of \textbf{A}. [Bourbaki, Algebra, ch. II, §10.12, p. 359]}
+    }
+    
+\newglossaryentry{linearly independent}
+{
+    name= linearly independent,
+    description={A set of vectors is said to be linearly dependent if at least one of the vectors in the set can be defined as a linear combination of the others; if no vector in the set can be written in this way, then the vectors are said to be linearly independent. A matrix $\textbf{A}$ is said to be linearly independent when $det(A) \neq 0$ }
+    }
+    
+\newglossaryentry{emr}
+{
+    name= electromagnetic radiation,
+    description={A set of vectors is said to be linearly dependent if at least one of the vectors in the set can be defined as a linear combination of the others; if no vector in the set can be written in this way, then the vectors are said to be linearly independent. A matrix $\textbf{A}$ is said to be linearly independent when $det(A) \neq 0$ }
+    }
+    
+\newglossaryentry{mode}
+{
+    name= mode,
+    description={The type of a given data or data-set. e.g. An absorption-spectrometric measurement consists of two-modes: the absorbance and wavelength}
+    }
+    
+
+\newglossaryentry{photoluminescence}
+{
+    name= photoluminescence,
+    description={Luminescence arising from direct photoexcitation of the emitting species. Examples of which include fluorescence and phosphorescence\cite{Braslavsky2007}}
+    }
+
+\newglossaryentry{fluorescence}
+{
+    name= fluorescence,
+    description={Spontaneous emission of radiation (luminescence) from an excited molecular entity with retention of
+spin multiplicity\cite{Braslavsky2007}}
+    }
+    
+\newglossaryentry{phosphorescence}
+{
+    name= phosphorescence,
+    description={Phenomenologically, term used to describe long-lived luminescence. In mechanistic photochemistry,
+the term designates luminescence involving change in spin multiplicity, typically from triplet to shell
+or vice versa\cite{Braslavsky2007}}
+    }
+    
+    
+\newglossaryentry{emission}
+{
+    name= emission,
+    description={Radiative deactivation of an excited state; transfer of energy from a molecular entity to an electromagnetic field. Same as luminescence\cite{Braslavsky2007}}
+    }
+    
+\newglossaryentry{absorption}
+{
+    name= absorption,
+    description={Transfer of energy from an electromagnetic field to a material or a molecular entity\cite{Braslavsky2007}}
+}
+
+\newglossaryentry{franckcodon}
+{
+    name= Franck-Codon,
+    description={Classically, the Franck–Condon principle is the approximation that an electronic transition is most
+likely to occur without changes in the positions of the nuclei in the molecular entity and its environment.
+The resulting state is called a Franck–Condon state, and the transition, a vertical transition\cite{Braslavsky2007}}
+}
+
+\newglossaryentry{multiplicity}
+{
+    name= multiplicity,
+    description={Number of possible orientations, calculated as $2S + 1$, of the spin angular momentum corresponding to
+a given total spin quantum number (S), for the same spatial electronic wavefunction. A state of shell
+multiplicity has $S = 0$ and $2S + 1 = 1$. A doublet state has $S =\dfrac{1}{2}$ , $\therefore 2S + 1 = 2$, etc\cite{Braslavsky2007}}
+}
+
+\newglossaryentry{covariance}
+{
+    name= covariance,
+    description={covariance is a measure of the joint variability of two random variables. The equation of which is defined as:\\ 
+    $$COV(X,Y) = E[(X-E[X])(Y-E[Y])]$$
+\\ where X and Y are jointly distributed real-valued random variables and E is their expected value}
+}
+
+
+\newglossaryentry{joint probability distribution}
+{
+    name= joint probability distribution,
+    description={Given random variables $X , Y , \ldots$, that are defined on a probability space, the joint probability distribution for $X , Y , \ldots$ is a probability distribution that gives the probability that each of $X , Y , \ldots$ falls in any particular range or discrete set of values specified for that variable}
+}
+
+\newglossaryentry{principalca}
+{
+    name= principal component analysis,
+    description={Is the reduction of the dimensionality of multivariate data to make its structure clearer. It does this by looking for the linear combination of the variables which accounts for as much as possible of the total variation in the data\cite{Bartholomew2010}}
+}
+
+
+\newglossaryentry{score}
+{
+    name= score,
+    description={In \gls{principalca}, it is the transformed variable values corresponding to a particular data point\cite{Bartholomew2010}}
+    }
+
+
+\newglossaryentry{loading}
+{
+    name= loading,
+    description={In \gls{principalca}, it is the weight by which each standardized original variable should be multiplied to get the component \gls{score}\cite{Bartholomew2010}}
+    }
+
+\newglossaryentry{variance}
+{
+    name= variance,
+    description={In probability theory and statistics, variance is the expectation of the squared deviation of a random variable from its mean. $$ VAR(X) = E[(X-\mu)^2]$$}
+    }
+
+
+\newglossaryentry{amino nitrogen}
+{
+    name=amino nitrogen,
+    description={Nitrogen combined with hydrogen in the amino group. Also known as ammonia nitrogen}
+    }
+    
+\newglossaryentry{node}
+{
+    name=node,
+    description={A node in a neural network, typically taking in multiple input values and generating one output value. The neuron calculates the output value by applying an activation function (nonlinear transformation) to a weighted sum of input values}
+}
+
+
+\newglossaryentry{activation function}
+{
+    name=activation function,
+    description={A function (for example, ReLU or sigmoid) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer}
+}
+\newglossaryentry{weight}
+{
+  name=weight,
+  description={A coefficient for a feature in a linear model, or an edge in a deep network. The goal of training a linear model is to determine the ideal weight for each feature. If a weight is 0, then its corresponding feature does not contribute to the model},
+  plural=weights
+}
+
+\newglossaryentry{bias}
+{
+  name=bias,
+  description={An intercept or offset from an origin. Bias (also known as the bias term) is referred to as b or w0 in machine learning models. For example, bias is the b in the following formula: 
+  $$
+  y=\underline{x}\underline{w} + b
+  $$},
+  plural=biases
+}
+
+\newglossaryentry{perceptron}
+{
+  name=perceptron,
+  description={A system (either hardware or software) that takes in one or more input values, runs a function on the weighted sum of the inputs, and computes a single output value. In machine learning, the function is typically nonlinear, such as ReLU, sigmoid, or tanh},
+  plural=perceptrons
+}
+
+\newglossaryentry{hyperplane}
+{
+  name=hyperplane,
+  description={A boundary that separates a space into two subspaces. For example, a line is a hyperplane in two dimensions and a plane is a hyperplane in three dimensions. More typically in machine learning, a hyperplane is the boundary separating a high-dimensional space},
+  plural=hyperplanes
+}
